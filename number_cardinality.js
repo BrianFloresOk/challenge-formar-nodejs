@@ -52,31 +52,22 @@ const test = {
 }
 
 function print({name}) {
-    if(name === "zero") {
-        console.log("zero")
-    }
-
-    if(name === "five") {
-        console.log("five")
-    }
-
-    if(name === "even") {
-        console.log("even")
-    }
-
-    if(name === "odd") {
-        console.log("odd")
+    const response = ["zero", "five", "even", "odd"];
+    for(let res of response) {
+        if(res === name) {
+            console.log(res)
+        }
     }
 }
 
 function number_cardinality(num) {
-    
+
     let zero = test.isZero(num);
     let five = test.isFive(num);
     let even = test.isEven(num);
     let odd = test.isOdd(num);
 
-    print(zero || five || even || odd)
+    print(zero || five || even || odd);
 }
 
-number_cardinality(numero)
+number_cardinality(numero);

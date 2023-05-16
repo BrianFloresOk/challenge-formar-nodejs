@@ -36,7 +36,7 @@ function fizz_buzz(n) {
             array.push(i);
         }
     }
-    console.log(array)
+    console.log(array);
 }
 
-fizz_buzz(numero)
+fizz_buzz(numero);

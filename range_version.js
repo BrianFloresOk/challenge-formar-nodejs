@@ -50,3 +50,15 @@ Sí, 8 es el valor mínimo de visión, tanto para el primer 3 como para el 1.
 Eso satisface los criterios, por lo que la función devuelve true.
 
 */
+
+let numero = process.argv[2];
+function range_vision(num) {
+    let numString = String(num);
+
+    for(let indice of numString) {
+        let visionInfo = {};
+        
+    }
+}
+
+range_vision(123001)
