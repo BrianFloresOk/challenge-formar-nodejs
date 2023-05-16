@@ -22,7 +22,7 @@ Output: [1,2,"Fizz",4,"Buzz","Fizz",7,8,"Fizz","Buzz",11,"Fizz",13,14,"FizzBuzz"
 */
 
 let numero = process.argv[2];
-function fizzBuzz(n) {
+function fizz_buzz(n) {
     let array = [];
     for (let i = 1; i <= n; i++) {
 
@@ -39,4 +39,4 @@ function fizzBuzz(n) {
     console.log(array)
 }
 
-fizzBuzz(numero)
+fizz_buzz(numero)
