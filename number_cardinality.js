@@ -61,11 +61,12 @@ function print({name}) {
 }
 
 function number_cardinality(num) {
+    const {isZero, isFive, isEven, isOdd} = test;
 
-    let zero = test.isZero(num);
-    let five = test.isFive(num);
-    let even = test.isEven(num);
-    let odd = test.isOdd(num);
+    let zero = isZero(num);
+    let five = isFive(num);
+    let even = isEven(num);
+    let odd = isOdd(num);
 
     print(zero || five || even || odd);
 }

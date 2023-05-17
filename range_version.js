@@ -52,23 +52,46 @@ Eso satisface los criterios, por lo que la función devuelve true.
 */
 
 let numero = process.argv[2];
-function range_vision(num) {
 
-    let myFunc = num => Number(num);
-    let intArr = Array.from(String(num), myFunc);
-  
-    let nuevo = intArr.map((num, index) => {
-        let arrSliceMas = intArr.slice(index + 1, index + 1 + num)
-        let arrSliceMenos = intArr.slice(0, index)
-        console.log(intArr.length,"original", arrSliceMenos.length + 1, "cortado")
-        let array2 = intArr.length - arrSliceMenos.length
-        let indicesAtras = intArr.slice(array2, num)
-        console.log(array2, "LARGOO ARRAY NUEVO")
-        console.log(arrSliceMas, "ADELANTE")
-        console.log(indicesAtras, "ATRAS")
-        console.log("********************************")
-    })
+const test = {
+    minValorVision: function(arr) {
+        return arr.reduce((acum, num) => (acum < num ? acum : num), Infinity)
+    },
+
+    convertStringArray: function(num) {
+        let numString = String(num)
+        let arr = [];
+        for(let indice of numString) {
+            indice = parseInt(indice)
+            arr.push(indice)
+        }
+        return arr;
+    },
+
+    visionNumero: function(arr) {
+        return arr.map((num, index) => {
+            let numerosAdelante = arr.slice(index + 1, index + 1 + num);
+            let arrSlice = arr.slice(0, index);
+            let numerosAtras = arrSlice.slice(0, num).reverse();
+            numerosAtras.reverse();
+            let arrTotales = numerosAtras.concat(numerosAdelante);
+            return arrTotales.reduce((acum, sum) => acum + sum, 0);
+        });
+    }
+}
+
+function range_vision(num) {
+    const {convertStringArray, visionNumero, minValorVision} = test;
+    let arrNum = convertStringArray(num)
+ 
+    let results = visionNumero(arrNum)
+
+    let minValor = minValorVision(results)
+
+    return minValor? console.log(true) : console.log(false);
 
 }
 
-range_vision(34315)
+if(numero >= 0) {
+    range_vision(numero)
+}
