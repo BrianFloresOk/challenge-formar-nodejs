@@ -53,12 +53,22 @@ Eso satisface los criterios, por lo que la función devuelve true.
 
 let numero = process.argv[2];
 function range_vision(num) {
-    let numString = String(num);
 
-    for(let indice of numString) {
-        let visionInfo = {};
-        
-    }
+    let myFunc = num => Number(num);
+    let intArr = Array.from(String(num), myFunc);
+  
+    let nuevo = intArr.map((num, index) => {
+        let arrSliceMas = intArr.slice(index + 1, index + 1 + num)
+        let arrSliceMenos = intArr.slice(0, index)
+        console.log(intArr.length,"original", arrSliceMenos.length + 1, "cortado")
+        let array2 = intArr.length - arrSliceMenos.length
+        let indicesAtras = intArr.slice(array2, num)
+        console.log(array2, "LARGOO ARRAY NUEVO")
+        console.log(arrSliceMas, "ADELANTE")
+        console.log(indicesAtras, "ATRAS")
+        console.log("********************************")
+    })
+
 }
 
-range_vision(123001)
+range_vision(34315)
